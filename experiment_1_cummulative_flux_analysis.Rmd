@@ -1,0 +1,109 @@
+---
+title: "experiment_1_cummulative_flux_analysis"
+author: "KEY"
+date: "2023-11-28"
+output: html_document
+---
+  
+This code corresponds to Figure 2 and Table S1 in the manuscript 
+It's purpose is to graph and model the cumulative GPP of different biocrust
+types (Type) given different experimental precipitation pulses (Treat)
+
+```{r libraries, message=F}  
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+library(sjPlot)
+library(car)
+```
+
+Read in the data
+
+```{r }
+data <- read_csv("experiment_1_flux_curve.csv") %>% 
+  mutate(Treat = as.numeric(Treat), Type = as.factor(Type))  # Convert Treat to numeric and Type to factor
+```
+
+Exclude NAs and summarize GPP by Type, Treat, and Rep
+
+```{r}
+sum <- data %>%
+  filter(!is.na(GPP_positive)) %>%  # Exclude rows with NA in GPP_positive
+  group_by(Type, Treat, Rep) %>%
+  summarize(sumGPP = sum(GPP_positive), .groups = 'drop')  # Sum GPP for each group
+```
+
+Model the data
+
+```{r }
+lm_model <- lm(sumGPP ~ Treat * Type, data = sum, na.action = na.exclude)
+summary(lm_model)  # Check the summary of the model
+tab_model(lm_model)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r }
+residuals <- residuals(lm_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are normally distributed according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r }
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+residuals are roughly bell-shaped and do not show significant skew
+
+2. Homogeneity of variance
+
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(sumGPP ~ Type, data = sum)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance hold
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too abd
+
+Plot data with linear model
+
+```{r}
+ggplot(sum, aes(x = Treat, y = sumGPP, color = Type, shape = Type)) + 
+  geom_point(size = 3, position = position_jitter(width = 0.2, height = 0)) + # Points with jitter
+  geom_smooth(method = "lm", aes(group = Type), se = TRUE) +  # Linear model with confidence interval
+  ylab('Total measured GPP (µmol CO2/m²/s)') +
+  xlab('Watering amount (mm)') +
+  scale_color_manual(values = c("#fdbb84", "#2ca25f")) +  # Custom colors for Type
+  scale_shape_manual(values = c("moss" = 17, "cyano" = 16)) +
+  scale_x_continuous(breaks = c(1.8, 2.7, 5.4, 7.7, 10)) +  # Custom x-axis tick marks
+  theme_bw() +
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        panel.grid.major = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 16))
+```

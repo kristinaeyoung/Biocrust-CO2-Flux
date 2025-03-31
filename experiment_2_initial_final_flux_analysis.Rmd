@@ -1,0 +1,417 @@
+---
+title: "experiment_2_initial_final_flux"
+author: "KEY"
+date: "2023-11-28"
+output: html_document
+---
+ 
+This code corresponds to Figure 3 and Table S2 in the manuscript
+The purpose of this code is to graph and analyze CO2 flux data (NSE, GPP, Respiration)
+from different biocrust types (Type) given different precipitation pulse 
+treatments (Treat) at the beginning of the experiment (Initial) and the
+end of the experiment (Final)
+
+```{r}
+library(tidyr)
+library(ggplot2)
+library(tidyverse)
+library(mgcv)
+library(lme4)
+library(sjPlot)
+library(car)
+```
+
+reading in and assigning flux data
+
+```{r}
+flux_data <- read_csv("experiment_2_initial_final_flux.csv") %>% 
+  mutate(Treat = as.numeric(Treat), Type = as.factor(Type), GPP_positive = as.numeric(GPP_positive)) 
+
+# flux_data <- read_csv("experiment_2_initial_final_flux.csv") %>% 
+ # mutate(Treat = as.numeric(Treat), Type = as.factor(Type), GPP_positive = as.numeric(GPP_positive)) #creates variables into factors and numeric for analysis
+```
+
+renaming flux values
+
+```{r}
+real <- rename(flux_data, GPP = "GPP_positive",
+              NSE = "NSE_Lin_Flux_Light",
+              Respiration = "R_Dark_Flux_Light")
+```
+
+renaming timmepoin values
+
+```{r}
+real$Timepoint <- factor(real$Timepoint, levels = c("Initial", "Final"),
+                  labels = c("Initial Treatment", "Final Treatment")
+)
+```
+
+grouping data to show in a single graph
+
+```{r}
+real_combined <- real %>%
+  gather(Flux, Value, c("GPP", "Respiration", "NSE")) %>%
+  mutate(Value = as.numeric(Value))
+```
+
+graphing the initial vs final flux data for GPP, NSE, Respiration
+
+```{r}
+ggplot(real_combined, aes(x = Treat, y = Value, color = Type, shape = Type), size = 2) + 
+  geom_smooth(method = lm) + 
+  facet_grid(Flux ~ Timepoint) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  ylab('µmol CO2 m-2s-1') +
+  xlab('Watering amount (mm)') +
+  scale_x_continuous(breaks=c(1.8, 2.7, 5.4, 7.7, 10)) +
+  scale_color_manual(values = c("#fdbb84", "#2ca25f")) +
+  theme_bw() +
+  theme(axis.title.x=element_text(size=12),
+        axis.text.x=element_text(size=12),
+        axis.title.y=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        panel.grid.major = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.title=element_text(size=12),
+        legend.text=element_text(size=12),
+        strip.text.x=element_text(size=12),
+        strip.text.y=element_text(size=12))
+```
+
+INITIAL TIMEPOINT ANALYSIS
+
+```{r}
+lm_pre <- subset(real, Timepoint == "Initial Treatment")
+lm_pre$Treat <- as.numeric(lm_pre$Treat)
+lm_pre$GPP <- as.numeric(lm_pre$GPP)
+```
+
+INITIAL GPP
+making a linear model for GPP at the initial timepoint
+
+```{r}
+lm_pre_GPP_model <- lm(GPP ~ Type * Treat, data = lm_pre)
+summary(lm_pre_GPP_model)
+tab_model(lm_pre_GPP_model)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(lm_pre_GPP_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are normally distributed according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+residuals are roughly bell-shaped and do not show significant skew
+
+2. Homogeneity of variance
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(Respiration ~ Type, data = lm_pre)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance hold
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_pre_GPP_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too bad
+
+INITIAL NSE
+making a linear model for NSE at the initial timepoint
+
+```{r}
+lm_pre_NSE_model <- lm(NSE ~ Type * Treat, data = lm_pre)
+summary(lm_pre_NSE_model)
+tab_model(lm_pre_NSE_model)
+```
+
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(lm_pre_NSE_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are normally distributed according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+residuals are roughly bell-shaped and do not show significant skew
+
+2. Homogeneity of variance
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(NSE ~ Type, data = lm_pre)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance hold
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_pre_NSE_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too bad
+
+INITIAL RESPIRATION
+making a linear model for R at the initial timepoint
+
+```{r}
+lm_pre_R_model <- lm(Respiration ~ Type * Treat, data = lm_pre)
+summary(lm_pre_R_model)
+tab_model(lm_pre_R_model)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(lm_pre_R_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are normally distributed according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+residuals are roughly bell-shaped and do not show significant skew
+
+2. Homogeneity of variance
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(Respiration ~ Type, data = lm_pre)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance hold
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_pre_R_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too bad
+
+FINAL TREATMENT ANALYSIS
+
+```{r}
+lm_post <- subset(real, Timepoint == "Final Treatment")
+lm_post$Treat <- as.numeric(lm_post$Treat)
+```
+
+FINAL GPP
+making a linear model for GPP at the final timepoint
+
+```{r}
+lm_post_GPP_model <- lm(GPP ~ Type * Treat, data = lm_post)
+summary(lm_post_GPP_model)
+tab_model(lm_post_GPP_model)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(lm_post_GPP_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are mostly normally distributed according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+there is a bit of skew but linear models are robust to minor deviation
+
+2. Homogeneity of variance
+
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(GPP ~ Type, data = lm_post)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance hold
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_post_GPP_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too bad
+
+FINAL NSE
+making a linear model for NSE at the final timepoint
+
+```{r}
+lm_post_NSE_model <- lm(NSE ~ Type * Treat, data = lm_post)
+summary(lm_post_NSE_model)
+tab_model(lm_post_NSE_model)
+```
+
+Check model assumptions
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(lm_post_NSE_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are not normally distributed according to shapiro-wilks
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+It looks like there are two data points skewing the data, the model is robust 
+enough to deal with two skewed points
+
+2. Homogeneity of variance
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(NSE ~ Type, data = lm_post)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance hold
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_post_NSE_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too bad
+
+FINAL RESPIRATION
+making a linear model for R at the final timepoint
+
+```{r}
+lm_post_R_model <- lm(Respiration ~ Type * Treat, data = lm_post)
+summary(lm_post_R_model)
+tab_model(lm_post_R_model)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(lm_post_R_model)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are mostly normally distributed according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+there is a bit of skew but linear models are robust to minor deviation
+
+2. Homogeneity of variance
+
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(Respiration ~ Type, data = lm_post)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance are not met, but its not too bad
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_post_R_model)
+```
+
+residuals vs fitted show no clear pattern
+residuals fall along 45-degree angle
+random spread of points
+a few lines are outside of Cook's distance line, but not too bad
+

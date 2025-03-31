@@ -1,0 +1,152 @@
+---
+title: "210_minus_60_GPP"
+author: "RFH"
+date: "2023-11-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 201 minus 60 GPP
+
+This R Markdown will track the analysis of GPP data collected by Young et al. First step will be to load the libraries and the data. 
+
+```{r libraries, message=F}
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+library(mgcv)
+library(lme4)
+library(sjPlot)
+library(car)
+library(multcomp)
+library(emmeans)
+library(cowplot)
+library(multcompView)
+```
+
+Because this is an R markdown file, the working directory is set to where ever this is saved. 
+
+```{r datasets}
+data <- read_csv("experiment_1_flux_curve.csv") %>% 
+  mutate(Treat = as.numeric(Treat), Type = as.factor(Type))  # Convert Treat to numeric and Type to factor
+
+data<-data %>% 
+  mutate(Treat=as.factor(Treat), Type=as.factor(Type)) %>% #creates variables into factors for analysis
+  mutate(Time = case_when(
+    Time == 1 ~ 30,
+    Time == 2 ~ 60,
+    Time == 3 ~ 90,
+    Time == 4 ~ 120,
+    Time == 5 ~ 150,
+    Time == 6 ~ 180,
+    Time == 7 ~ 210))
+  
+```
+
+## BUilding GAM for comparing crust type and water type
+
+The objective of these analyses is to compare CO2 response rats of cyanobacteria and moss to different watering treatments (Treat). Original models were built by Kristin Young.
+
+```{r original models}
+model_1<- gam(GPP_positive ~ Type * Treat + s(Time, by = Treat, k = 2) +
+               s(Rep, bs = 're'), 
+             data = data, family=gaussian)
+
+model_2<- gam(GPP_positive ~ Type * Treat + s(Time, by = Treat, k = 4) +s(Time, by = Type, k = 4) +
+               s(Rep, bs = 're'), 
+             data = data, family=gaussian) 
+
+model_3<- gam(GPP_positive ~ Type * Treat +s(Time, by = Type, k = 4) +
+               s(Rep, bs = 're'), 
+             data = data, family=gaussian) 
+
+AIC(model_1, model_2, model_3)## model 2 is lower AIC
+
+summary(model_2)
+plot(model_2)
+anova(model_2)
+
+tab_model(model_2)# R2=0.664, can use this output in MS to explain model observations
+gam.check(model_2) #model looks really good with assumptions
+
+#Anova(model_2)
+```
+
+The model looks pretty good and is explaining about 70% of the variation in the data. To help with interpretation, we can now build out predictive models so we can plot our model output and see how it looks.
+
+## Build models and think about stats tables
+
+```{r model prediction}
+
+
+predict<-tidymv::predict_gam(model_2) 
+
+#test plot of the curves from the model
+predict %>% 
+  ggplot(aes(x = Time, y = fit, color = Type))+
+  geom_smooth(method="gam", formula=y~s(x))+
+  facet_grid(. ~ Treat, scales = 'free') 
+```
+Trying to figure out how to remove the gaps in the confidence intervals.
+
+Next step is to clean up the plot and bring it all together.
+```{r Figure 1}
+graph_df<-predict%>% #first need to merge in the predictive data
+   mutate(lwr=fit-(2*se.fit), upr=fit+(2*se.fit))
+
+(fig1<-
+  ggplot()+
+    geom_ribbon(data=graph_df, aes(x=Time, ymin=lwr, ymax= upr, group=Type),  fill="gray")+
+  stat_smooth(data=graph_df, aes(x=Time, y=fit, color=Type), method="gam", formula=y~s(x), se=T)+
+    geom_point(data=data,aes(x=Time, y= GPP_positive, color = Type, shape= Type))+
+   facet_grid(. ~ Treat, scales = 'free') + 
+  ylab('GPP (µmol CO2/m²/s)') +
+  xlab('Time (minutes)') +
+  scale_color_manual( "Crust Type", values = c("#fdbb84", "#2ca25f")) +
+    scale_shape_manual( "Crust Type", values = c(16,17)) +
+  scale_x_continuous(breaks=seq(0, 210, 30))+
+  theme_bw() +
+  theme(axis.title.x=element_text(size=12),
+       axis.text.x = element_text(angle = 30, hjust = 1, size=9, color = "black"),
+        axis.title.y=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        panel.grid.major = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.title=element_text(size=12),
+        legend.text=element_text(size=12))
+ )
+fig1
+
+ggsave("fig1.png", dpi=300, width=8, height=5.5, units="in")
+
+```
+Figure out the stats for this above figure and make a table. Are the patterns different between moss and cyano overtime within each treatment? I think the best option is to fit a linear mixed effects model and then do post-hoc testing with the multcomp package.
+
+```{r figure out post-hoc statistics}
+
+model_2<- gam(GPP_positive ~ Type * Treat + s(Time, by = Treat, k = 4) +
+                s(Time, by = Type, k = 4) +
+               s(Rep, bs = 're'), 
+             data = data, family=gaussian) 
+
+mod_posthoc<-lme4::lmer(GPP_positive~Type*Treat+(1|Rep), data=data)
+
+summary(mod_posthoc)
+Anova(mod_posthoc)
+
+emm = emmeans(mod_posthoc, ~ Type*Treat)
+pairs(emm)
+
+model_means_cld <- cld(object = emm,
+                       adjust = "Tukey",
+                       Letters = letters,
+                       alpha = 0.05)
+
+model_means_cld
+
+```
+
+

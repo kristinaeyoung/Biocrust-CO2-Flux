@@ -1,0 +1,201 @@
+---
+title: "experiment_2_soil_moisture_analysis"
+author: "KEY"
+date: "2023-11-28"
+output: html_document
+---
+  
+This code corresponds to Figure S2 in the manuscript
+The purpose of this is to model and graph the total time spent
+wet (wetsum) for each biocrust type (crust_type) across each
+experimental precipitation pulse treatment (treatment)
+code to calculate total time spent wet can be found in 
+"experiment_2_dry_down_curve_analysis"
+
+```{r}
+library(tidyr)
+library(ggplot2)
+library(tidyverse)
+library(mgcv)
+library(lme4)
+library(sjPlot)
+library(car)
+```
+
+reading in the data
+
+```{r}
+df <- read_csv("experiment_2_soil_moisture.csv") %>%
+  mutate(treatment = as.factor(treatment), crust_type = as.factor(crust_type))
+```
+
+graphing the wetsum across treatments and crust types
+
+```{r}
+ggplot(df, aes(x = treatment, y = wetsum, fill = crust_type), size = 2) + 
+  geom_boxplot() + 
+  facet_grid(. ~ crust_type) +
+  ylab('Culumative time spent wet (hours)') +
+  xlab('Watering Treatment') +
+  scale_x_discrete(breaks=c(1.8, 2.7, 5.4, 7.7, 10)) +
+  scale_fill_manual(values = c("#fdbb84", "#2ca25f")) +
+  theme_bw() +
+  theme(axis.title.x=element_text(size=12),
+        axis.text.x=element_text(size=12),
+        axis.title.y=element_text(size=12),
+        axis.text.y=element_text(size=12),
+        panel.grid.major = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.title=element_text(size=12),
+        legend.text=element_text(size=12),
+        strip.text.x=element_text(size=12),
+        strip.text.y=element_text(size=12))
+```
+
+analyzing the variance of the total time spent wet across crust types
+
+```{r}
+t_test <- t.test(wetsum ~ crust_type, data = df)
+print(t_test)
+```
+
+Get residuals from the t-test model
+First calculate the difference between actual values and group means
+
+```{r}
+group_means <- tapply(df$wetsum, df$crust_type, mean)
+residuals <- df$wetsum - group_means[df$crust_type]
+```
+
+Shapiro-Wilk test for normality
+
+```{r}
+shapiro_test <- shapiro.test(residuals)
+print(shapiro_test)  # p-value > 0.05 suggests normality
+```
+
+this is not completely normal but is mostly normal
+
+Visualize the residuals
+Histogram of residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+Q-Q plot to check normality
+
+```{r}
+qqnorm(residuals)
+qqline(residuals, col = "red")
+```
+
+the data mostly follows the 45-degree angle line
+
+analyzing the variance of the total time spent wet across treatment types within cyano crusts
+
+```{r}
+cyano_df <- subset(df, crust_type == "cyano")
+aov_cyano <- aov(wetsum ~ treatment, data = cyano_df)
+summary(aov_cyano)
+TukeyHSD(aov_cyano)
+tab_model(aov_cyano)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(aov_cyano)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are distributed normally according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+there is a bit of skew but linear models are robust to minor deviation
+
+2. Homogeneity of variance
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(wetsum ~ treatment, data = cyano_df)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance are met
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(aov_cyano)
+```
+
+residuals vs fitted are clumped but the rest of model assumptions are met
+residuals fall along 45-degree angle
+
+
+analyzing the variance of the total time spent wet across treatment types within moss crusts
+
+```{r}
+moss_df <- subset(df, crust_type == "moss")
+aov_moss <- aov(wetsum ~ treatment, data = moss_df)
+summary(aov_moss)
+tab_model(aov_moss)
+```
+
+Check model assumptions
+
+1. Normality of residuals
+
+```{r}
+residuals <- residuals(aov_moss)
+shapiro_test <- shapiro.test(residuals)  # Shapiro-Wilk test for normality
+print(shapiro_test)
+```
+
+residuals are distributed normally according to Shapiro-Wilk test
+
+Plot residuals
+
+```{r}
+ggplot(data = data.frame(residuals = residuals), aes(x = residuals)) +
+  geom_histogram(bins = 30, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Frequency")
+```
+
+there is a bit of skew but linear models are robust to minor deviation
+
+2. Homogeneity of variance
+Levene's test requires a formula that includes the grouping variable
+
+```{r}
+levene_test <- leveneTest(wetsum ~ treatment, data = moss_df)  # Test for homogeneity of variances across Types
+print(levene_test)
+```
+
+Assumptions of homogeneity of variance are met
+
+Plot diagnostic plots for ANOVA
+
+```{r}
+par(mfrow = c(2, 2))
+plot(aov_moss)
+```
+
+residuals vs fitted are clumped but the rest of model assumptions are met
+residuals fall along 45-degree angle
+it doesn't look amazing, but it is ok for the purposes needed here
+
