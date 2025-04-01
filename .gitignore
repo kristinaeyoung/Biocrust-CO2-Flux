@@ -4,9 +4,7 @@
 .Ruserdata
 *.Rprofile
 *.pdf
-*.html
 renv/
 *.png
 cyanodrydown.csv
-
 /.quarto/
