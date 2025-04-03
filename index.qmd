@@ -1,0 +1,93 @@
+## Description
+
+This repository contains data and analysis code for a precipitation manipulation experiment conducted in Moab, Utah. The focus is on the effects of altered precipitation patterns on biocrust CO₂ fluxes. The dataset includes chamber-based flux measurements along with associated environmental variables.
+
+All code and data are organized for reproducibility using R and the `renv` package for environment management.
+---
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+### 1. Clone the repository
+
+git clone https://github.com/kristinaeyoung/Biocrust-CO2-Flux.git
+
+### 2. Initialize R Environment
+This project uses renv to manage R package dependencies.
+
+In R:
+
+install.packages("renv")
+renv::restore()  # This will install all required packages listed in renv.lock
+
+### How to Run the Analysis
+The primary analysis is done through R Markdown files.
+
+### Main Analysis File
+Open and knit the following R Markdown file to reproduce the main analyses:
+
+# experiment_1_cummulative_flux_analysis.Rmd
+data/: experiment_1_flux_curve.csv
+This R Markdown file reproduces Figure 2 and Table S1 from the manuscript. It contains data analysis and visualizations that assess how cumulative gross primary productivity (GPP) of biocrust communities responds to varying experimental precipitation pulse Purpose: The script models and visualizes the cumulative GPP of different biocrust types (Type, e.g., moss and cyano) under a gradient of watering treatments (Treat, in mm). The goal is to understand how biocrusts functionally respond to precipitation variability—a key question in dryland ecosystem research.
+
+R Packages Used:
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+library(sjPlot)
+library(car)
+
+# experiment_1_flux_curve_analysis.Rmd
+data/: experiment_1_flux_curve.csv
+This R Markdown file contains an analysis of CO₂ flux data collected by Young et al. during a precipitation pulse experiment. The goal is to explore and visualize how different biocrust types (cyanobacteria and moss) respond to varying watering treatments over time, using generalized additive models (GAMs) and mixed-effects models.
+Purpose: Model GPP (Gross Primary Productivity) responses across time, treatment levels, and crust types. Visualize modeled and observed flux dynamics (Figure 1). Conduct post-hoc analysis to compare patterns between biocrust types and treatments
+
+R Packages Used:
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+library(mgcv)
+library(lme4)
+library(sjPlot)
+library(car)
+library(multcomp)
+library(emmeans)
+library(cowplot)
+library(multcompView)
+
+## experiment_2_dry_down_curve_analysis.Rmd
+data/: experiment_2_dry_down_curve_1
+data/: experiment_2_dry_down_curve_2
+This R Markdown file supports Figure S3 and calculates values for Figure S2 in the manuscript. It analyzes dry down curves for biocrust mesocosms over a four-month precipitation pulse experiment. The goal is to quantify drying dynamics, including wet duration, proportion of time wet, and dry down rate, across crust types and watering treatments.
+Purpose: Compile and calibrate water content data from biocrust mesocosms. Calculate and summarize hydrological response metrics: duration of wetting events, cumulative wet time, peak counts. Fit exponential decay models (DRC) to dry down curves by treatment and biocrust type. Compare drying rates of moss vs. cyanobacteria under different watering regimes
+R Packages Used:
+library(pracma)     # for peak detection
+library(drc)        # for exponential decay model fitting
+
+## experiment_2_initial_final_flux_analysis.Rmd
+data/: experiment_2_initial_final_flux.csv
+This R Markdown file supports Figure 3 and Table S2 of the manuscript. It analyzes CO₂ fluxes—including Net Soil Exchange (NSE), Gross Primary Productivity (GPP), and Respiration—from biocrust communities subjected to varying precipitation pulse treatments. The analysis compares initial and final responses over the course of the experiment.
+Purpose: Compare initial vs. final CO₂ flux responses (NSE, GPP, Respiration). Assess how biocrust type (moss, cyano) and watering treatment (mm) influence fluxes. Fit and evaluate linear models for each flux metric at each timepoint. Visualize interactions using faceted plots
+R Packages Used:
+library(tidyr)
+library(ggplot2)
+library(tidyverse)
+library(mgcv)
+library(lme4)
+library(sjPlot)
+library(car)
+
+
+
+File Structure
+data/: Raw and processed data files
+
+scripts/: Supporting R scripts
+
+renv/ and renv.lock: R environment files
+
+Notes
+Be sure to have R ≥ 4.1 installed
+
+If new packages are installed, run renv::snapshot() to update the environment

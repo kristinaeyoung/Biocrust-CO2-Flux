@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="CT">
+<meta name="dcterms.date" content="2023-11-28">
+
+<title>Biocrust CO₂ Flux Data From Precipitation Manipulation Experiment (Moab, UT) - experiment_2_dry_down_curve_analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./experiment_2_initial_final_flux_analysis.html" rel="next">
+<link href="./experiment_1_flux_curve_analysis.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./experiment_2_dry_down_curve_analysis.html"><span class="chapter-title">experiment_2_dry_down_curve_analysis</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Biocrust CO₂ Flux Data From Precipitation Manipulation Experiment (Moab, UT)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Description</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_1_cummulative_flux_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">experiment_1_cummulative_flux_analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_1_flux_curve_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">210_minus_60_GPP</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_2_dry_down_curve_analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">experiment_2_dry_down_curve_analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_2_initial_final_flux_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">experiment_2_initial_final_flux</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">experiment_2_dry_down_curve_analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>CT </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 28, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This code corresponds to Figure S3 and calculates values for Figure S2 The purpose of this code is to compile, analyze, and graph the dry down curves for each biocrust and treatment type over the four month pulse manipulation experiment</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"pracma"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"drc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : MASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+'drc' has been loaded.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Please cite R and 'drc' if used for a publication,</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>for references type 'citation()' and 'citation('drc')'.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'drc'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Les objets suivants sont masqués depuis 'package:stats':
+
+    gaussian, getInitial</code></pre>
+</div>
+</div>
+<p>Input crust mesocosm data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pulse <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"experiment_2_dry_down_curve_1.csv"</span>,<span class="at">header=</span>T)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pulse<span class="sc">$</span>TIMESTAMP <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="fu">as.character</span>(pulse<span class="sc">$</span>TIMESTAMP),<span class="at">format=</span><span class="st">"%m/%d/%Y %H:%M"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pulse[,<span class="dv">2</span><span class="sc">:</span><span class="dv">29</span>][pulse[,<span class="dv">2</span><span class="sc">:</span><span class="dv">29</span>]<span class="sc">&gt;</span><span class="dv">30</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>maxS <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>minS <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>sdminS <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>min and maxWC from some calibrations Armin and I did, for “calibration” to GWC</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>maxWC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.32</span>,<span class="fl">0.76</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>minWC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.018</span>,<span class="fl">0.045</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>merging</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>treatments <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"experiment_2_dry_down_curve_2.csv"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>treatments <span class="ot">&lt;-</span> treatments[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">16</span>),]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>treat <span class="ot">&lt;-</span>treatments<span class="sc">$</span>Treatment</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>bc <span class="ot">&lt;-</span> treatments<span class="sc">$</span>Type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>number of events there should be in a data set</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span><span class="fu">ifelse</span>(treat<span class="sc">==</span><span class="fl">1.8</span>,<span class="dv">36</span>,<span class="fu">ifelse</span>(treat<span class="sc">==</span><span class="fl">2.7</span>,<span class="dv">26</span>,<span class="fu">ifelse</span>(treat<span class="sc">==</span><span class="fl">5.4</span>,<span class="dv">13</span>,<span class="fu">ifelse</span>(treat<span class="sc">==</span><span class="fl">7.7</span>,<span class="dv">9</span>,<span class="fu">ifelse</span>(treat<span class="sc">==</span><span class="fl">10.0</span>,<span class="dv">7</span>,<span class="cn">NA</span>)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>rescaling between max and min WC for “calibration”</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rescaleF <span class="ot">&lt;-</span> <span class="cf">function</span>(min,max,vwcmin,vwcmax,input){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> ((input <span class="sc">-</span> min)<span class="sc">*</span>(vwcmax <span class="sc">-</span> vwcmin)<span class="sc">/</span>(max<span class="sc">-</span>min)) <span class="sc">+</span> vwcmin</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>find average min of lowest 6000 measurements and max peak heights separated by at leat 144 measurements</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">29</span>){</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#plot(pulse[,i],type="l",main=i)</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#abline(h=0.2)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">findpeaks</span>(<span class="fu">na.omit</span>(pulse[,i]),<span class="at">nups =</span> <span class="dv">1</span>,<span class="at">ndowns =</span> <span class="dv">1</span>,<span class="at">minpeakheight =</span> <span class="fl">0.3</span>,<span class="at">minpeakdistance =</span> <span class="dv">144</span>))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    minS[i<span class="dv">-1</span>] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pulse[<span class="fu">order</span>(pulse[,i]),i][<span class="dv">1</span><span class="sc">:</span><span class="dv">6000</span>],<span class="at">na.rm=</span>T)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    sdminS[i<span class="dv">-1</span>] <span class="ot">&lt;-</span> <span class="fu">sd</span>(pulse[<span class="fu">order</span>(pulse[,i]),i][<span class="dv">1</span><span class="sc">:</span><span class="dv">6000</span>],<span class="at">na.rm=</span>T)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    maxS[i<span class="dv">-1</span>] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">findpeaks</span>(<span class="fu">na.omit</span>(pulse[,i]),<span class="at">nups =</span> <span class="dv">1</span>,<span class="at">ndowns =</span> <span class="dv">1</span>,<span class="at">minpeakheight =</span> <span class="fl">0.3</span>,<span class="at">minpeakdistance =</span> <span class="dv">144</span>)[,<span class="dv">1</span>],<span class="at">na.rm=</span>T)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error=</span><span class="cf">function</span>(e){})</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       [,1]  [,2]  [,3]  [,4]
+ [1,] 7.962   180   177   206
+ [2,] 3.329   493   491   504
+ [3,] 3.167  1914  1910  1923
+ [4,] 2.410   910   906   912
+ [5,] 2.071  1204  1197  1207
+ [6,] 1.904  7243  7240  7257
+ [7,] 1.458  7527  7525  7538
+ [8,] 1.417  2204  2201  2215
+ [9,] 1.199  2921  2919  2933
+[10,] 0.771  3931  3929  3939
+[11,] 0.640  4938  4936  4940
+[12,] 0.494 12008 12006 12009
+[13,] 0.484  7968  7966  7972
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 5.007  7099  7097  7111
+ [2,] 4.891 11430 11428 11442
+ [3,] 4.864   343   336   347
+ [4,] 4.781  3065  3062  3075
+ [5,] 4.781 12141 12139 12144
+ [6,] 4.736  9409  9407  9435
+ [7,] 4.699  3358  3356  3390
+ [8,] 4.699  4367  4365  4373
+ [9,] 4.667  7389  7387  7396
+[10,] 4.658  4075  4073  4086
+[11,] 4.594 11135 11133 11163
+[12,] 4.571  6378  6375  6407
+[13,] 4.534  9116  9114  9123
+[14,] 4.513  8405  8403  8423
+[15,] 4.397  6090  6088  6100
+[16,] 4.259  5080  5073  5084
+[17,] 4.137  5364  5362  5370
+[18,] 3.233  8110  8107  8115
+[19,] 3.162 10139 10135 10157
+[20,] 2.959 10417 10413 10423
+[21,] 2.666  2349  2347  2355
+[22,] 2.297  1387  1382  1389
+[23,] 2.052  2066  2061  2071
+[24,] 1.406 12431 12428 12433
+[25,] 1.398  1052  1050  1054
+[26,] 0.360    46    45    50
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 6.732    44    41    76
+ [2,] 6.467  8407  8403  8423
+ [3,] 5.565  1067  1062  1075
+ [4,] 5.008  1386  1382  1396
+ [5,] 4.452   331   329   340
+ [6,] 4.430  7098  7096  7110
+ [7,] 4.252  2065  2054  2067
+ [8,] 4.000  4364  4362  4386
+ [9,] 3.808  4076  4072  4090
+[10,] 3.808 12137 12134 12139
+[11,] 3.628  5080  5073  5082
+[12,] 3.443  7404  7402  7409
+[13,] 3.055  8109  8107  8115
+[14,] 2.440  3357  3354  3358
+[15,] 2.335  9119  9113  9121
+[16,] 2.224 11441 11439 11455
+[17,] 2.138 10133 10126 10143
+[18,] 2.113  9410  9407  9430
+[19,] 1.404 10424 10422 10428
+[20,] 1.111 11137 11132 11140
+[21,] 1.067  2353  2350  2367
+[22,] 0.504 12427 12425 12434
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 16.440   182   179   191
+ [2,] 10.440 10273 10268 10280
+ [3,] 10.280 11284 11279 11292
+ [4,] 10.060  9273  9271  9305
+ [5,]  9.500  8261  8259  8296
+ [6,]  9.210 12567 12565 12571
+ [7,]  8.090  7257  7255  7276
+ [8,]  3.992  6234  6232  6268
+ [9,]  3.384  4221  4218  4232
+[10,]  3.091  5221  5219  5224
+[11,]  3.054  1199  1197  1201
+[12,]  2.631  3215  3213  3221
+[13,]  1.901  1386  1382  1388
+[14,]  1.034  2217  2213  2220
+[15,]  0.605 11442 11441 11447
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 10.550  2219  2217  2220
+ [2,]  8.640  1234  1232  1240
+ [3,]  7.894  4226  4224  4227
+ [4,]  7.417  1386  1383  1390
+ [5,]  7.144  5219  5217  5221
+ [6,]  6.789  3235  3232  3236
+ [7,]  6.572 12572 12571 12573
+ [8,]  6.230   182   180   183
+ [9,]  6.098  9275  9274  9279
+[10,]  4.439  8257  8256  8259
+[11,]  2.055  7254  7253  7256
+[12,]  1.171 11394 11391 11398
+[13,]  1.035  2366  2365  2371
+[14,]  0.826 10275 10268 10278
+[15,]  0.730  1632  1631  1633
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 6.500   189   188   195
+ [2,] 6.005 12284 12280 12288
+ [3,] 5.724 10563 10561 10571
+ [4,] 5.498  9257  9254  9265
+ [5,] 4.315  7965  7964  7976
+ [6,] 3.822  3215  3212  3221
+ [7,] 2.495  1561  1560  1563
+ [8,] 2.071  4506  4504  4517
+ [9,] 1.736  6385  6383  6390
+[10,] 1.411  6238  6232  6242
+[11,] 0.519 10717 10710 10720
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 19.680 12286 12283 12289
+ [2,] 14.260  6380  6375  6388
+ [3,] 14.180 10568 10562 10588
+ [4,] 13.890  9257  9254  9270
+ [5,] 13.770  4510  4506  4541
+ [6,] 12.800  7962  7957  7965
+ [7,]  9.790  3218  3215  3219
+ [8,]  8.190  1496  1492  1499
+ [9,]  6.239   190   188   203
+[10,]  5.833  1642  1640  1643
+[11,]  2.578 12436 12435 12454
+[12,]  1.988 10713 10711 10716
+[13,]  0.945   342   340   343
+[14,]  0.792  4662  4661  4664
+[15,]  0.730  9404  9403  9405
+[16,]  0.697  3368  3367  3369
+[17,]  0.659 10859 10853 10862
+[18,]  0.654  2056  2054  2057
+[19,]  0.590  6526  6524  6528
+[20,]  0.561 12586 12584 12587
+[21,]  0.518 11409 11408 11410
+[22,]  0.486  1798  1796  1803
+[23,]  0.373  5078  5073  5080
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 29.260 10137 10134 10247
+ [2,] 26.930  6380  6375  6384
+ [3,] 23.250 12430 12427 12433
+ [4,] 16.540  8401  8399  8405
+ [5,] 13.330  4368  4366  4370
+ [6,] 10.420   341   336   347
+ [7,]  3.579  2350  2347  2353
+ [8,]  1.581   514   511   515
+ [9,]  0.719 12661 12658 12663
+[10,]  0.598 10390 10389 10392
+[11,]  0.504 11423 11422 11429
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 14.840 10132 10131 10153
+ [2,] 12.040  4364  4362  4366
+ [3,] 10.300  6384  6383  6388
+ [4,]  9.110   328   327   336
+ [5,]  8.720  8393  8391  8394
+ [6,]  8.070 12423 12421 12426
+ [7,]  7.009  2356  2350  2363
+ [8,]  0.952  2501  2500  2502
+ [9,]  0.518   494   493   501
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 10.280  7244  7238  7273
+ [2,]  9.540  6233  6230  6267
+ [3,]  9.400  5509  5505  5510
+ [4,]  9.320  6955  6952  6961
+ [5,]  8.470  7535  7532  7548
+ [6,]  8.350  6524  6521  6554
+ [7,]  7.823  3501  3499  3509
+ [8,]  7.782  2922  2919  2930
+ [9,]  7.768  1234  1231  1241
+[10,]  7.685   182   177   183
+[11,]  7.589   480   476   490
+[12,]  7.543  5228  5222  5269
+[13,]  7.451 12571 12569 12610
+[14,]  7.396  4222  4219  4225
+[15,]  7.076 12283 12280 12298
+[16,]  6.592 11281 11279 11285
+[17,]  6.204  8262  8259  8284
+[18,]  6.151 10277 10268 10291
+[19,]  6.101 10994 10992 11011
+[20,]  5.942  3932  3928  3940
+[21,]  5.742  8973  8970  8997
+[22,]  5.719  8538  8535  8568
+[23,]  5.702  4508  4503  4513
+[24,]  5.578  4942  4938  4944
+[25,]  5.497   921   917   924
+[26,]  5.492  1917  1909  1919
+[27,]  4.984  2493  2488  2499
+[28,]  4.929  9551  9548  9573
+[29,]  4.891 11566 11564 11602
+[30,]  4.714  9270  9268  9290
+[31,]  4.219  2216  2213  2220
+[32,]  4.164  9983  9981  9987
+[33,]  3.849 11993 11989 11996
+[34,]  3.384  3216  3214  3217
+[35,]  3.335  5967  5964  5984
+[36,]  2.926  1499  1497  1500
+[37,]  2.128  7963  7957  7967
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 7.554   492   491   496
+ [2,] 5.757   180   178   193
+ [3,] 4.452  8257  8255  8275
+ [4,] 3.933  7963  7958  7967
+ [5,] 3.753  4509  4507  4518
+ [6,] 3.726  4220  4217  4225
+ [7,] 3.685  7534  7533  7542
+ [8,] 3.648  8538  8535  8545
+ [9,] 3.227  7242  7240  7257
+[10,] 3.105  3931  3929  3940
+[11,] 3.000  5507  5505  5512
+[12,] 2.918  3501  3499  3506
+[13,] 2.864  2920  2918  2931
+[14,] 2.823   912   910   915
+[15,] 2.717  6523  6521  6529
+[16,] 2.624  5226  5224  5247
+[17,] 2.276  6954  6952  6963
+[18,] 2.263 12003 12000 12004
+[19,] 2.042  9551  9549  9564
+[20,] 1.792  2490  2488  2496
+[21,] 1.787  1919  1916  1923
+[22,] 1.758  3213  3211  3223
+[23,] 1.549  9269  9263  9277
+[24,] 1.454  5965  5964  5968
+[25,] 1.286  6233  6232  6238
+[26,] 1.254  2203  2200  2207
+[27,] 1.158  9982  9981  9989
+[28,] 0.940  4938  4937  4940
+[29,] 0.545  1500  1497  1501
+[30,] 0.540  1203  1197  1206
+[31,] 0.510  8974  8972  8976
+[32,] 0.502 12290 12289 12298
+[33,] 0.448 12584 12583 12585
+[34,] 0.433 11289 11283 11292
+[35,] 0.428 11583 11581 11584
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 15.000  6382  6375  6454
+ [2,] 14.940  9263  9260  9274
+ [3,] 14.890  7961  7957  7974
+ [4,] 14.770  6238  6232  6247
+ [5,] 13.840  4510  4507  4517
+ [6,] 12.940   192   190   204
+ [7,] 12.260  3214  3211  3218
+ [8,] 10.800  1503  1499  1505
+ [9,]  6.353 10565 10563 10570
+[10,]  4.949 12284 12283 12295
+[11,]  3.448  1654  1653  1668
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 5.784 10566 10563 10574
+ [2,] 4.206 12284 12280 12286
+ [3,] 3.342  4506  4503  4517
+ [4,] 3.338  7966  7958  7973
+ [5,] 3.283  1485  1483  1490
+ [6,] 3.049  6383  6375  6388
+ [7,] 2.664  6237  6232  6240
+ [8,] 2.085  3217  3215  3225
+ [9,] 1.812   192   190   199
+[10,] 1.384  9264  9260  9276
+[11,] 0.398 10719 10714 10724
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 15.070   186   184   194
+ [2,] 11.760  9275  9272  9282
+ [3,] 10.700  8258  8256  8263
+ [4,]  9.060  7240  7238  7254
+ [5,]  8.820  6234  6232  6246
+ [6,]  6.789  4221  4217  4230
+ [7,]  6.740 11283 11279 11295
+ [8,]  6.706 12573 12571 12577
+ [9,]  6.524  5227  5224  5238
+[10,]  5.963  3213  3211  3223
+[11,]  5.099 10274 10268 10283
+[12,]  4.934  2203  2200  2210
+[13,]  2.850  1233  1231  1239
+[14,]  2.215  1386  1383  1388
+[15,]  0.553  2348  2346  2355
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 5.393  7100  7097  7104
+ [2,] 5.372  8108  8106  8130
+ [3,] 5.241  1375  1369  1377
+ [4,] 5.057  6381  6375  6402
+ [5,] 5.001  3066  3062  3075
+ [6,] 5.001  3357  3355  3378
+ [7,] 4.836  4366  4363  4374
+ [8,] 4.835  9410  9408  9430
+ [9,] 4.675 10135 10133 10151
+[10,] 4.608  7384  7382  7395
+[11,] 4.603  4076  4073  4098
+[12,] 4.459 11136 11132 11139
+[13,] 4.428  8406  8403  8423
+[14,] 4.425  6091  6088  6100
+[15,] 4.206  5079  5073  5084
+[16,] 4.192  5364  5362  5385
+[17,] 4.178  9116  9114  9121
+[18,] 4.137 12140 12138 12142
+[19,] 4.020    46    44    62
+[20,] 3.849 10415 10412 10441
+[21,] 3.716  2350  2348  2357
+[22,] 3.433  2066  2065  2071
+[23,] 2.946 11430 11426 11432
+[24,] 0.817 12428 12426 12434
+[25,] 0.435   345   336   349
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 8.440 10138 10136 10160
+ [2,] 8.160  8406  8403  8432
+ [3,] 8.030  8107  8105  8114
+ [4,] 7.796  9116  9115  9119
+ [5,] 7.615  9410  9408  9435
+ [6,] 7.592 11135 11132 11145
+ [7,] 7.451 11430 11428 11435
+ [8,] 7.258 10414 10412 10420
+ [9,] 7.189 12136 12134 12139
+[10,] 5.036    48    44    63
+[11,] 4.523  7105  7097  7111
+[12,] 4.196  6384  6375  6405
+[13,] 4.172  7390  7383  7396
+[14,] 3.318 12431 12428 12435
+[15,] 3.158  1387  1382  1389
+[16,] 3.069  6095  6090  6104
+[17,] 2.873  5088  5084  5094
+[18,] 2.781  1101  1095  1106
+[19,] 2.741  4078  4071  4090
+[20,] 2.654   343   336   347
+[21,] 2.304  4370  4367  4373
+[22,] 2.222  5365  5361  5381
+[23,] 1.022  3359  3355  3368
+[24,] 0.681  3069  3063  3070
+[25,] 0.500  2084  2080  2086
+[26,] 0.364  2372  2366  2374
+      [,1]  [,2]  [,3]  [,4]
+[1,] 9.340   356   351   369
+[2,] 4.379 12445 12443 12448
+[3,] 3.929 10139 10136 10140
+[4,] 2.806  8410  8409  8412
+[5,] 1.968  2352  2350  2355
+[6,] 1.662  4369  4367  4374
+[7,] 0.697  6381  6375  6388
+       [,1]  [,2]  [,3]  [,4]
+[1,] 15.730 12424 12422 12427
+[2,] 11.350  6380  6375  6383
+[3,] 11.150   342   336   354
+[4,] 10.950  4369  4363  4370
+[5,] 10.610 10135 10132 10140
+[6,] 10.340  8394  8393  8397
+[7,]  8.660  2360  2358  2361
+[8,]  0.316  8541  8538  8544
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 10.870 10566 10563 10598
+ [2,]  5.853   489   488   496
+ [3,]  5.097   185   179   194
+ [4,]  4.887 11281 11279 11286
+ [5,]  4.781  1234  1231  1255
+ [6,]  4.237   928   924   931
+ [7,]  4.010  1917  1909  1919
+ [8,]  3.575 12003 12001 12005
+ [9,]  3.534 11568 11564 11573
+[10,]  3.457  8974  8972  8978
+[11,]  3.448  2493  2488  2496
+[12,]  3.356  2224  2223  2229
+[13,]  3.165  3221  3218  3227
+[14,]  3.110  2934  2931  2938
+[15,]  2.901  7964  7957  7967
+[16,]  2.672  5526  5525  5531
+[17,]  2.424  3513  3507  3516
+[18,]  2.413 10995 10992 10996
+[19,]  2.310  8259  8256  8264
+[20,]  2.189  5228  5227  5233
+[21,]  2.156 10275 10268 10292
+[22,]  2.126  4943  4939  4944
+[23,]  2.045  3933  3929  3936
+[24,]  2.003  4509  4506  4513
+[25,]  1.997  8540  8535  8545
+[26,]  1.717  6958  6955  6961
+[27,]  1.660  7245  7242  7249
+[28,]  1.461  1501  1493  1503
+[29,]  1.388  4238  4231  4241
+[30,]  1.059  6525  6522  6529
+[31,]  1.008  7531  7526  7533
+[32,]  0.743  9267  9263  9272
+[33,]  0.660 12282 12280 12286
+[34,]  0.408  5972  5971  5975
+[35,]  0.406  6245  6242  6247
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 4.630   183   180   204
+ [2,] 2.741   487   486   492
+ [3,] 1.672  6522  6520  6528
+ [4,] 1.471  5508  5506  5512
+ [5,] 1.314  6232  6230  6241
+ [6,] 1.308  7533  7531  7547
+ [7,] 1.254  5225  5222  5227
+ [8,] 1.185  4511  4508  4517
+ [9,] 1.171  4940  4938  4943
+[10,] 0.978 11289 11279 11294
+[11,] 0.913  4224  4222  4232
+[12,] 0.817  3501  3499  3505
+[13,] 0.802  7245  7242  7246
+[14,] 0.681  3218  3216  3220
+[15,] 0.646  3932  3929  3936
+[16,] 0.640  1235  1231  1237
+[17,] 0.559  2921  2918  2922
+[18,] 0.465  2492  2488  2494
+[19,] 0.396   921   914   923
+[20,] 0.318  1501  1498  1503
+[21,] 0.300  2205  2203  2209
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 8.950 10132 10126 10167
+ [2,] 8.730 11134 11132 11147
+ [3,] 8.720  9410  9408  9439
+ [4,] 8.650  8109  8107  8116
+ [5,] 8.540 11430 11427 11437
+ [6,] 8.290 10414 10413 10420
+ [7,] 7.997  8408  8403  8434
+ [8,] 7.506  9116  9114  9120
+ [9,] 7.354 12135 12133 12137
+[10,] 5.961  7097  7094  7103
+[11,] 5.761  6384  6375  6387
+[12,] 5.691  7383  7380  7387
+[13,] 5.179  6091  6089  6096
+[14,] 5.111  5363  5361  5369
+[15,] 5.083  3357  3353  3361
+[16,] 5.042  4365  4363  4368
+[17,] 4.824  5077  5073  5082
+[18,] 4.699  4074  4071  4075
+[19,] 4.588  2362  2361  2364
+[20,] 4.584  3085  3081  3112
+[21,] 4.507  2083  2081  2084
+[22,] 3.563  1344  1343  1347
+[23,] 3.017 12431 12428 12434
+[24,] 2.783  1068  1063  1070
+[25,] 2.137    47    45    53
+[26,] 1.512   330   328   340
+[27,] 1.151  1499  1497  1509
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 11.110    48    45    79
+ [2,]  8.760  3065  3062  3071
+ [3,]  6.260   343   336   346
+ [4,]  5.702  3357  3355  3387
+ [5,]  5.255  7099  7097  7110
+ [6,]  4.877  4076  4073  4083
+ [7,]  4.804  8407  8403  8423
+ [8,]  3.986  5079  5073  5082
+ [9,]  3.794  5365  5362  5373
+[10,]  3.685  9115  9113  9122
+[11,]  3.499  7391  7389  7403
+[12,]  3.260  6092  6090  6100
+[13,]  3.197 11135 11133 11152
+[14,]  3.184 10134 10132 10145
+[15,]  3.096 12136 12133 12138
+[16,]  3.019  6384  6375  6387
+[17,]  2.959 11429 11427 11440
+[18,]  2.946  8108  8106  8116
+[19,]  2.903  2351  2349  2358
+[20,]  2.819  9409  9407  9426
+[21,]  2.700 10415 10412 10432
+[22,]  2.461  1386  1382  1389
+[23,]  2.414  2061  2059  2065
+[24,]  1.990  4368  4366  4373
+[25,]  1.238  1057  1056  1060
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 12.110  3218  3216  3227
+ [2,] 11.630  9274  9272  9316
+ [3,] 11.290  7247  7244  7259
+ [4,] 11.230  4223  4221  4227
+ [5,] 10.830  6233  6230  6242
+ [6,] 10.640 10276 10268 10298
+ [7,] 10.250  5226  5222  5232
+ [8,]  9.980  1233  1232  1241
+ [9,]  9.680  8257  8255  8262
+[10,]  9.660 11282 11279 11283
+[11,]  9.590   188   186   196
+[12,]  9.400  2214  2213  2215
+[13,]  8.790 12569 12565 12571
+[14,]  7.928  1386  1382  1389
+[15,]  3.208 11441 11440 11449
+[16,]  0.841  2359  2357  2360
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 10.830  8259  8257  8262
+ [2,] 10.550  3220  3218  3226
+ [3,] 10.480  5228  5223  5229
+ [4,] 10.470  9271  9269  9274
+ [5,]  9.940  4238  4236  4240
+ [6,]  9.640  6235  6232  6237
+ [7,]  6.986 10276 10268 10278
+ [8,]  6.703 11296 11290 11298
+ [9,]  6.310  7246  7242  7258
+[10,]  3.466   190   187   197
+[11,]  2.399  1233  1231  1234
+[12,]  1.778  1386  1382  1390
+[13,]  1.663 10424 10422 10426
+[14,]  1.608 12578 12576 12582
+[15,]  1.334 11458 11457 11463
+[16,]  0.573  2204  2202  2206
+[17,]  0.374  9415  9414  9418
+[18,]  0.314  3371  3369  3375
+       [,1]  [,2]  [,3]  [,4]
+ [1,] 5.545  1499  1497  1500
+ [2,] 4.765  6239  6238  6240
+ [3,] 4.270  6388  6387  6390
+ [4,] 3.836  4510  4507  4513
+ [5,] 3.151  9263  9260  9266
+ [6,] 2.942  7966  7964  7973
+ [7,] 2.457  3219  3217  3221
+ [8,] 1.561   193   192   195
+ [9,] 1.549  1644  1643  1647
+[10,] 0.572 12300 12298 12305
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 16.170 10575 10569 10579
+ [2,] 15.880 12281 12275 12284
+ [3,]  9.200  9256  9254  9257
+ [4,]  8.550  7965  7957  7974
+ [5,]  8.370  6386  6382  6392
+ [6,]  8.350   195   192   203
+ [7,]  7.722  6241  6237  6261
+ [8,]  6.582  3220  3218  3226
+ [9,]  5.977  4508  4505  4518
+[10,]  5.768 12439 12438 12440
+[11,]  5.726  1485  1482  1486
+[12,]  1.613  1657  1656  1658
+[13,]  1.267 10838 10837 10839
+[14,]  0.823   342   340   343
+[15,]  0.553  9405  9401  9409
+[16,]  0.534  4662  4661  4664
+[17,]  0.518 11414 11413 11415
+[18,]  0.492 12585 12580 12591
+[19,]  0.429  6533  6530  6538
+[20,]  0.374  3372  3369  3375
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 17.490  8407  8400  8414
+ [2,] 12.280   343   340   344
+ [3,]  9.470  6413  6410  6418
+ [4,]  8.820  4400  4399  4401
+ [5,]  8.650 10132 10126 10134
+ [6,]  8.350 12430 12427 12433
+ [7,]  7.858  2377  2376  2379
+ [8,]  5.083   493   492   498
+ [9,]  3.567  8552  8550  8571
+[10,]  0.979 12591 12588 12594
+[11,]  0.445   637   633   639
+[12,]  0.435 10380 10379 10381
+[13,]  0.367  2625  2622  2627
+        [,1]  [,2]  [,3]  [,4]
+ [1,] 10.660  8400  8398  8403
+ [2,]  8.350 12480 12478 12481
+ [3,]  6.904 10134 10132 10153
+ [4,]  3.943   356   353   360
+ [5,]  3.054  2351  2349  2357
+ [6,]  2.577  4368  4366  4373
+ [7,]  1.261  6383  6375  6387
+ [8,]  0.423 12657 12656 12658
+ [9,]  0.367  2501  2498  2508</code></pre>
+</div>
+</div>
+<p>determine a measuremnent noise threshhold as the mean of the min group + 10x stdev of the min group calculate the duraction above that treshhold, proportion of time wet, number of peaks, create rescaled newpulse data create newpulseWET where data below threshold are set to NA</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>thresh <span class="ot">&lt;-</span> minS <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>sdminS</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>newthresh <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>newpulse <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>wetsum <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>wetprop <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>duration <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>peakcount <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>newpulse <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="fu">nrow</span>(pulse),<span class="at">ncol=</span><span class="dv">28</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>newpulseWET <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="fu">nrow</span>(pulse),<span class="at">ncol=</span><span class="dv">28</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>newpulseWET2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="fu">nrow</span>(pulse),<span class="at">ncol=</span><span class="dv">28</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>))</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>){</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    newpulse[,i] <span class="ot">&lt;-</span> <span class="fu">rescaleF</span>(minS[i],maxS[i],minWC[<span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(bc[i]))],</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                         maxWC[<span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(bc[i]))],pulse[,i<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(newpulse[,i],<span class="at">type=</span><span class="st">"l"</span>,<span class="at">main=</span>treat[i],<span class="at">cex.main=</span><span class="dv">1</span>,<span class="at">cex.lab=</span><span class="dv">1</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>))</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    newthresh[i] <span class="ot">&lt;-</span> <span class="fu">rescaleF</span>(minS[i],maxS[i],minWC[<span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(bc[i]))],</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                             maxWC[<span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(bc[i]))],thresh[i])</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abline</span>(<span class="at">h=</span>newthresh[i],<span class="at">lwd=</span><span class="dv">4</span>,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    wetsum[i] <span class="ot">&lt;-</span> <span class="fu">length</span>(newpulse[,i][newpulse[,i]<span class="sc">&gt;</span>newthresh[i]])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    wetprop[i] <span class="ot">&lt;-</span> wetsum[i]<span class="sc">/</span>(<span class="fu">length</span>(newpulse[,i])<span class="sc">/</span><span class="dv">6</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    peakcount[i] <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">findpeaks</span>(newpulse[,i],<span class="dv">1</span>,<span class="dv">1</span>,<span class="at">minpeakheight=</span>newthresh[i],<span class="at">minpeakdistance =</span> <span class="dv">144</span>)[,<span class="dv">1</span>])</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    duration[i] <span class="ot">&lt;-</span> wetsum[i]<span class="sc">/</span>(counts[i])</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    newpulseWET[,i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(newpulse[,i]<span class="sc">&gt;</span>newthresh[i],newpulse[,i],<span class="cn">NA</span>)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    newpulseWET2[,i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(newpulse[,i]<span class="sc">&gt;</span><span class="dv">2</span><span class="sc">*</span>newthresh[i],newpulse[,i],<span class="cn">NA</span>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error=</span><span class="cf">function</span>(e){})</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>newthresh <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(newthresh)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>duration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(duration)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># out.dat &lt;- cbind.data.frame(treatments$?..Sample_Num,treat,bc,wetsum,wetprop,duration)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv(x = out.dat,file="Corrected_output.csv")</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># outVWC.dat &lt;- rbind.data.frame(treatments$?..Sample_Num,treat,bc,newpulse)</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv(x= outVWC.dat,file="Corrected_VWC.csv")</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># outWET.dat &lt;- rbind.data.frame(treatments$?..Sample_Num,treat,bc,newpulseWET)</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv(x= outWET.dat,file="WETcrust.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>rowmeans by treatments for timeseries with thresholds</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cyano1 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>])</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cyano2 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>cyano5 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>cyano7 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>cyano10 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(newthresh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:28] 0.0613 0.0428 0.0458 0.0333 0.0364 ...</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>threshc1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>])</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>threshc2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>threshc5 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>threshc7 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>threshc10 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>moss1 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>])</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>moss2 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>moss5 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>moss7 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>moss10 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>threshm1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>])</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>threshm2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>threshm5 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>threshm7 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>threshm10 <span class="ot">&lt;-</span> <span class="fu">mean</span>(newthresh[bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(cyano1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12673</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>beg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4001</span>,<span class="dv">8001</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>end <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">length</span>(cyano1),<span class="dv">3</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"CORRECTED_time series with threshold.pdf"</span>,<span class="at">height=</span><span class="dv">8</span>, <span class="at">width=</span><span class="dv">6</span>, <span class="at">pointsize=</span><span class="dv">10</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="fl">0.5</span>),<span class="at">pty=</span><span class="st">"s"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>){</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cyano1[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Cyano 1"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">"water content"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshc1,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cyano2[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Cyano 2"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshc2,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cyano5[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Cyano 5"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshc5,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cyano7[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Cyano 7"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshc7,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cyano10[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Cyano 10"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshc10,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moss1[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Moss 1"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">"water content"</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshm1,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moss2[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Moss 2"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshm2,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moss5[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Moss 5"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshm5,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moss7[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Moss 7"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshm7,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moss10[beg[i]<span class="sc">:</span>end[i]],<span class="at">main=</span><span class="st">"Moss 10"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>threshm10,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>png 
+  2 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(treat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:28] 1.8 2.7 2.7 5.4 5.4 7.7 7.7 10 10 1.8 ...</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> chr [1:28] "moss" "cyano" "moss" "moss" "cyano" "moss" "cyano" "cyano" ...</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>bc <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(bc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"CORRECTED_boxplot.pdf"</span>,<span class="at">height=</span><span class="dv">4</span>, <span class="at">width=</span><span class="dv">8</span>, <span class="at">pointsize=</span><span class="dv">10</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),<span class="at">pty=</span><span class="st">"s"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(duration<span class="sc">~</span>treat<span class="sc">*</span>bc,<span class="at">las=</span><span class="dv">2</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">"duration of  wetting event"</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(wetsum<span class="sc">~</span>treat<span class="sc">*</span>bc,<span class="at">las=</span><span class="dv">2</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">"cumulative time wet"</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(wetprop<span class="sc">~</span>treat<span class="sc">*</span>bc,<span class="at">las=</span><span class="dv">2</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">"proportion time wet"</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>png 
+  2 </code></pre>
+</div>
+</div>
+<p>FOR DRY DOWN CURVES</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>timeinseries <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="fu">nrow</span>(pulse),<span class="at">ncol=</span><span class="dv">28</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>create a timeinseries variable that determines when the start of each wetting sequence is, calls that 1, and then numbers sequentially until the start of the next wetting sequence</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>){</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">100</span><span class="sc">:</span><span class="fu">length</span>(newpulseWET[,i])){</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tryCatch</span>({</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>      timeinseries[j,i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(<span class="fu">mean</span>(newpulseWET[(j<span class="dv">-99</span>)<span class="sc">:</span>(j<span class="dv">-1</span>),i],<span class="at">na.rm=</span>T)) <span class="sc">&amp;</span> newpulseWET2[j,i]<span class="sc">&gt;</span><span class="dv">0</span>,<span class="dv">1</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">ifelse</span>(timeinseries[j<span class="dv">-1</span>,i]<span class="sc">&gt;</span><span class="dv">0</span>,timeinseries[j<span class="dv">-1</span>,i]<span class="sc">+</span><span class="dv">1</span>,<span class="cn">NA</span>))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">error=</span><span class="cf">function</span>(e){})</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(timeinseries[,i],newpulseWET[,i],<span class="at">main=</span>i,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(newpulseWET[,i],<span class="at">na.rm=</span>T)))</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-13-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-13-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-13-5.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>vectorize all measurements within a given treatment cyano</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>cyano1 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,(bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>vectorize time series by a given treatment, convert from 10 minutes to hours this way of vectorization is a little silly, but this is just to create dry down curves, will need to add another column with treat and crust to do glm of time series to compare drydowns</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>tc1 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,(bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>)])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>cyano2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>tc2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>cyano5 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>tc5 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>cyano7 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>tc7 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>cyano10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>tc10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"cyano"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>cyano <span class="ot">&lt;-</span> <span class="fu">c</span>(cyano1,cyano2,cyano5,cyano7,cyano10)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">&lt;-</span> <span class="fu">c</span>(tc1,tc2,tc5,tc7,tc10)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>curveC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"c1"</span>,<span class="fu">length</span>(cyano1)),<span class="fu">rep</span>(<span class="st">"c2"</span>,<span class="fu">length</span>(cyano2)),<span class="fu">rep</span>(<span class="st">"c5"</span>,<span class="fu">length</span>(cyano5)),<span class="fu">rep</span>(<span class="st">"c7"</span>,<span class="fu">length</span>(cyano7)),<span class="fu">rep</span>(<span class="st">"c10"</span>,<span class="fu">length</span>(cyano10)))</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>cyano.tab <span class="ot">&lt;-</span> <span class="fu">cbind</span>(cyano,tc,curveC)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(cyano.tab,<span class="at">file=</span><span class="st">"cyanodrydown.csv"</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>fitC <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano<span class="sc">~</span>tc,<span class="at">curveid =</span> curveC,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.018</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#mselect(fitC, list(EXD.2(fixed=c(0.18,NA)),EXD.3(fixed=c(0.18,NA,NA))), linreg=TRUE, icfct=AIC)</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>fitnoC <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano<span class="sc">~</span>tc,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.018</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>(<span class="fu">anova</span>(fitnoC,fitC))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+1st model
+ fct:      EXD.3(fixed = c(0.018, NA, NA))
+ pmodels: 1 (for all parameters)
+2nd model
+ fct:      EXD.3(fixed = c(0.018, NA, NA))
+ pmodels: curveC (for all parameters)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA table
+
+          ModelDf    RSS Df F value p value
+1st model   32860 452.29                   
+2nd model   32852 346.92  8  1247.3     0.0</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compParm</span>(fitC,<span class="at">strVal =</span> <span class="fu">c</span>(<span class="st">"e"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Comparison of parameter 'e' 
+
+        Estimate Std. Error   t-value   p-value    
+c1/c2  0.9835777  0.0357544   -0.4593    0.6460    
+c1/c5  0.3141732  0.0140472  -48.8229 &lt; 2.2e-16 ***
+c1/c7  0.2413486  0.0079562  -95.3530 &lt; 2.2e-16 ***
+c1/c10 0.2468656  0.0083192  -90.5296 &lt; 2.2e-16 ***
+c2/c5  0.3194188  0.0133653  -50.9215 &lt; 2.2e-16 ***
+c2/c7  0.2453783  0.0071050 -106.2104 &lt; 2.2e-16 ***
+c2/c10 0.2509874  0.0074763 -100.1845 &lt; 2.2e-16 ***
+c5/c7  0.7682024  0.0299118   -7.7494 9.524e-15 ***
+c5/c10 0.7857628  0.0310850   -6.8920 5.602e-12 ***
+c7/c10 1.0228591  0.0261305    0.8748    0.3817    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fitC2 <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano<span class="sc">~</span>tc,<span class="at">curveid =</span> curveC,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(minWC[<span class="dv">1</span>],maxWC[<span class="dv">1</span>],<span class="cn">NA</span>)))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fitC,fitC2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+1st model
+ fct:      EXD.3(fixed = c(minWC[1], maxWC[1], NA))
+2nd model
+ fct:      EXD.3(fixed = c(0.018, NA, NA))</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA table
+
+          ModelDf    RSS Df F value p value
+2nd model   32857 356.95                   
+1st model   32852 346.92  5   189.8     0.0</code></pre>
+</div>
+</div>
+<p>using DRC exponential decay model to fit drydown curves</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tc1,cyano1,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>fitC1 <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano1<span class="sc">~</span>tc1,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC1,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tc2,cyano2,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>fitC2 <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano2<span class="sc">~</span>tc2,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC2,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tc5,cyano5,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>fitC5 <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano5<span class="sc">~</span>tc5,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC5,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tc7,cyano7,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>fitC7 <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano7<span class="sc">~</span>tc7,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC7,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tc10,cyano10,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>fitC10 <span class="ot">&lt;-</span> <span class="fu">drm</span>(cyano10<span class="sc">~</span>tc10,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC10,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>vectorize all measurements within a given treatment moss</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>moss1 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,(bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>)])</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>tm1 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,(bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">1.8</span>)])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>moss2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>tm2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">2.7</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>moss5 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>tm5 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">5.4</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>moss7 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>tm7 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">7.7</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>moss10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(newpulse[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>tm10 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(timeinseries[,bc<span class="sc">==</span><span class="st">"moss"</span><span class="sc">&amp;</span>treat<span class="sc">==</span><span class="fl">10.0</span>])<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>moss <span class="ot">&lt;-</span> <span class="fu">c</span>(moss1,moss2,moss5,moss7,moss10)</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>tm <span class="ot">&lt;-</span> <span class="fu">c</span>(tm1,tm2,tm5,tm7,tm10)</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>curveM <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"m1"</span>,<span class="fu">length</span>(cyano1)),<span class="fu">rep</span>(<span class="st">"m2"</span>,<span class="fu">length</span>(cyano2)),<span class="fu">rep</span>(<span class="st">"m5"</span>,<span class="fu">length</span>(cyano5)),<span class="fu">rep</span>(<span class="st">"m7"</span>,<span class="fu">length</span>(cyano7)),<span class="fu">rep</span>(<span class="st">"m10"</span>,<span class="fu">length</span>(cyano10)))</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>fitM <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss<span class="sc">~</span>tm,<span class="at">curveid =</span> curveM,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>fitnoM <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss<span class="sc">~</span>tm,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.045</span>,maxWC[<span class="dv">2</span>],<span class="cn">NA</span>)))</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>(<span class="fu">anova</span>(fitnoM,fitM))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+1st model
+ fct:      EXD.3(fixed = c(0.045, maxWC[2], NA))
+ pmodels: 1 (for all parameters)
+2nd model
+ fct:      EXD.3(fixed = c(0, NA, NA))
+ pmodels: curveM (for all parameters)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA table
+
+          ModelDf    RSS Df F value p value
+1st model   25172 299.29                   
+2nd model   25163 210.69  9  1175.7     0.0</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compParm</span>(fitM,<span class="at">strVal =</span> <span class="fu">c</span>(<span class="st">"e"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Comparison of parameter 'e' 
+
+        Estimate Std. Error   t-value   p-value    
+m1/m2  0.8727079  0.0397616   -3.2014  0.001369 ** 
+m1/m5  0.5347803  0.0220057  -21.1409 &lt; 2.2e-16 ***
+m1/m7  0.2910071  0.0145645  -48.6797 &lt; 2.2e-16 ***
+m1/m10 0.2113051  0.0076124 -103.6064 &lt; 2.2e-16 ***
+m2/m5  0.6127827  0.0286449  -13.5179 &lt; 2.2e-16 ***
+m2/m7  0.3334531  0.0182541  -36.5150 &lt; 2.2e-16 ***
+m2/m10 0.2421259  0.0102433  -73.9876 &lt; 2.2e-16 ***
+m5/m7  0.5441620  0.0278224  -16.3838 &lt; 2.2e-16 ***
+m5/m10 0.3951252  0.0148221  -40.8090 &lt; 2.2e-16 ***
+m7/m10 0.7261168  0.0342030   -8.0076 1.276e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>allB <span class="ot">&lt;-</span> <span class="fu">c</span>(cyano, moss)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>allt <span class="ot">&lt;-</span> <span class="fu">c</span>(tc,tm)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>allcurve <span class="ot">&lt;-</span> <span class="fu">c</span>(curveC,curveM)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">drm</span>(allB<span class="sc">~</span>allt,<span class="at">curveid =</span> allcurve,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.031</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>using DRC EXD.2 (exponential decay) to fit dry down curves moss</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tm1,moss1,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>fitM1 <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss1<span class="sc">~</span>tm1,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM1,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tm2,moss2,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>fitM2 <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss2<span class="sc">~</span>tm2,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM2,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tm5,moss5,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>fitM5 <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss5<span class="sc">~</span>tm5,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM5,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tm7,moss7,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>fitM7 <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss7<span class="sc">~</span>tm7,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM7,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tm10,moss10,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">60</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>fitM10 <span class="ot">&lt;-</span> <span class="fu">drm</span>(moss10<span class="sc">~</span>tm10,<span class="at">fct=</span><span class="fu">EXD.3</span>(<span class="at">fixed=</span><span class="fu">c</span>(<span class="fl">0.0</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)))</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM10,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitC,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                         Estimate Std. Error
+e:c1:0.0380011000165254   9.95673    0.27895
+e:c10:0.0380011000165254 41.74279    0.78179
+e:c2:0.0380011000165254  10.16351    0.23542
+e:c5:0.0380011000165254  29.22109    1.01824
+e:c7:0.0380011000165254  43.55455    0.75672</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitC1,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0380011000165254  9.54238    0.23705</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitC2,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0380011000165254   9.6367     0.1462</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitC5,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0380011000165254  30.4051     1.3651</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitC7,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0380011000165254 40.28443    0.82365</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitC10,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0380011000165254 37.49079    0.64069</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ED(fitM,respLev = c(mean(c(threshm1,threshm2,threshm5,threshm7,threshm10))),type="absolute")</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitM1,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshm1,threshm2,threshm5,threshm7,threshm10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0441357979603893  7.83556    0.17016</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitM2,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshm1,threshm2,threshm5,threshm7,threshm10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0441357979603893   8.4197     0.2214</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitM5,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshm1,threshm2,threshm5,threshm7,threshm10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0441357979603893 18.55620    0.60936</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitM7,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshm1,threshm2,threshm5,threshm7,threshm10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0441357979603893 20.90080    0.85398</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ED</span>(fitM10,<span class="at">respLev =</span> <span class="fu">c</span>(<span class="fu">mean</span>(<span class="fu">c</span>(threshm1,threshm2,threshm5,threshm7,threshm10))),<span class="at">type=</span><span class="st">"absolute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estimated effective doses
+
+                       Estimate Std. Error
+e:1:0.0441357979603893  35.1778     1.0773</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_2_dry_down_curve_analysis_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>plotting dry down curves with detection threshold</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"drydowncurves3.pdf"</span>,<span class="at">width =</span> <span class="fl">6.50</span>,<span class="at">height=</span><span class="dv">4</span>,<span class="at">pointsize=</span><span class="dv">10</span>)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">pty=</span><span class="st">"s"</span>)</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC1,<span class="at">log=</span><span class="st">""</span>,<span class="at">col=</span><span class="dv">1</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">48</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),<span class="at">ylab=</span><span class="st">"GWC"</span>,<span class="at">xlab=</span><span class="st">"Hours since watered"</span>,<span class="at">main=</span><span class="st">"Cyano"</span>)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC2,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">2</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC5,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC7,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">4</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC10,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">5</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC1,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">1</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">9.5</span>))</span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC2,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">2</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">9.6</span>))</span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC5,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">30.4</span>))</span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC7,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">4</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">40.2</span>))</span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitC10,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">5</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">37.5</span>))</span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(<span class="fu">c</span>(threshc1,threshc2,threshc5,threshc7,threshc10)))</span>
+<span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">9.5</span>,<span class="fl">9.6</span>,<span class="fl">30.4</span>,<span class="fl">40.2</span>,<span class="fl">37.5</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">lty=</span><span class="st">"dashed"</span>)</span>
+<span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-16"><a href="#cb70-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM1,<span class="at">log=</span><span class="st">""</span>,<span class="at">col=</span><span class="dv">1</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">48</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),<span class="at">ylab=</span><span class="st">"GWC"</span>,<span class="at">xlab=</span><span class="st">"Hours since watered"</span>,<span class="at">main=</span><span class="st">"Moss"</span>)</span>
+<span id="cb70-17"><a href="#cb70-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM2,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">2</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-18"><a href="#cb70-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM5,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-19"><a href="#cb70-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM7,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">4</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-20"><a href="#cb70-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM10,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">5</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty=</span><span class="st">"dotted"</span>)</span>
+<span id="cb70-21"><a href="#cb70-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM1,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">1</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">7.8</span>))</span>
+<span id="cb70-22"><a href="#cb70-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM2,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">2</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">8.4</span>))</span>
+<span id="cb70-23"><a href="#cb70-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM5,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">18.5</span>))</span>
+<span id="cb70-24"><a href="#cb70-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitM7,<span class="at">log=</span><span class="st">""</span>,<span class="at">add=</span>T,<span class="at">col=</span><span class="dv">4</span>,<span class="at">type=</span><span class="st">"none"</span>,<span class="at">lwd=</span><span class="dv">3</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">20.9</span>))</span>
+<span id="cb70-25"><a href="#cb70-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(<span class="fu">c</span>(threshm1,threshm2,threshm5,threshm7,threshm10)))</span>
+<span id="cb70-26"><a href="#cb70-26" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">7.8</span>,<span class="fl">8.4</span>,<span class="fl">18.5</span>,<span class="fl">20.9</span>,<span class="fl">35.2</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">lty=</span><span class="st">"dashed"</span>)</span>
+<span id="cb70-27"><a href="#cb70-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-28"><a href="#cb70-28" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"1.8"</span>,<span class="st">"2.7"</span>,<span class="st">"5.4"</span>,<span class="st">"7.7"</span>,<span class="st">"10.0"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">lty=</span><span class="st">"solid"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">bty=</span><span class="st">"n"</span>)</span>
+<span id="cb70-29"><a href="#cb70-29" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>png 
+  2 </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">AIC</span>(fitM1,fitM2,fitM5,fitM7,fitM10))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in AIC.default(fitM1, fitM2, fitM5, fitM7, fitM10): tous les modèles
+n'ont pas été ajustés sur le même nombre d'observations</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       df         AIC        
+ Min.   :3   Min.   :-17100  
+ 1st Qu.:3   1st Qu.:-11685  
+ Median :3   Median : -9202  
+ Mean   :3   Mean   :-10314  
+ 3rd Qu.:3   3rd Qu.: -8485  
+ Max.   :3   Max.   : -5099  </code></pre>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./experiment_1_flux_curve_analysis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">210_minus_60_GPP</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./experiment_2_initial_final_flux_analysis.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">experiment_2_initial_final_flux</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

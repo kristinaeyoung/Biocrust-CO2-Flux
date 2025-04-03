@@ -1,0 +1,23 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Biocrust CO₂ Flux Data From Precipitation Manipulation Experiment (Moab, UT)"
+  author: "Kristina E Young"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - experiment_1_cummulative_flux_analysis.qmd
+    - experiment_1_flux_curve_analysis.qmd
+    - experiment_2_dry_down_curve_analysis.qmd
+    - experiment_2_initial_final_flux_analysis.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    number-depth: -1
+    number-sections: false
+
+editor: visual

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="RFH">
+<meta name="dcterms.date" content="2023-11-28">
+
+<title>Biocrust CO₂ Flux Data From Precipitation Manipulation Experiment (Moab, UT) - 210_minus_60_GPP</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./experiment_2_dry_down_curve_analysis.html" rel="next">
+<link href="./experiment_1_cummulative_flux_analysis.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./experiment_1_flux_curve_analysis.html"><span class="chapter-title">210_minus_60_GPP</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Biocrust CO₂ Flux Data From Precipitation Manipulation Experiment (Moab, UT)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Description</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_1_cummulative_flux_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">experiment_1_cummulative_flux_analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_1_flux_curve_analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">210_minus_60_GPP</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_2_dry_down_curve_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">experiment_2_dry_down_curve_analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiment_2_initial_final_flux_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">experiment_2_initial_final_flux</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#minus-60-gpp" id="toc-minus-60-gpp" class="nav-link active" data-scroll-target="#minus-60-gpp">201 minus 60 GPP</a></li>
+  <li><a href="#building-gam-for-comparing-crust-type-and-water-type" id="toc-building-gam-for-comparing-crust-type-and-water-type" class="nav-link" data-scroll-target="#building-gam-for-comparing-crust-type-and-water-type">BUilding GAM for comparing crust type and water type</a></li>
+  <li><a href="#build-models-and-think-about-stats-tables" id="toc-build-models-and-think-about-stats-tables" class="nav-link" data-scroll-target="#build-models-and-think-about-stats-tables">Build models and think about stats tables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">210_minus_60_GPP</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>RFH </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 28, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="minus-60-gpp" class="level2">
+<h2 class="anchored" data-anchor-id="minus-60-gpp">201 minus 60 GPP</h2>
+<p>This R Markdown will track the analysis of GPP data collected by Young et al.&nbsp;First step will be to load the libraries and the data.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcompView)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Because this is an R markdown file, the working directory is set to where ever this is saved.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"experiment_1_flux_curve.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Treat =</span> <span class="fu">as.numeric</span>(Treat), <span class="at">Type =</span> <span class="fu">as.factor</span>(Type))  <span class="co"># Convert Treat to numeric and Type to factor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 191 Columns: 16
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (1): Type
+dbl (15): Treat, Rep, Time, NSE_Lin_Flux, Lin_FluxCV, Exp_Flux, Exp_FluxCV, ...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Treat=</span><span class="fu">as.factor</span>(Treat), <span class="at">Type=</span><span class="fu">as.factor</span>(Type)) <span class="sc">%&gt;%</span> <span class="co">#creates variables into factors for analysis</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">30</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">60</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">90</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">120</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="dv">150</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="dv">180</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    Time <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="dv">210</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="building-gam-for-comparing-crust-type-and-water-type" class="level2">
+<h2 class="anchored" data-anchor-id="building-gam-for-comparing-crust-type-and-water-type">BUilding GAM for comparing crust type and water type</h2>
+<p>The objective of these analyses is to compare CO2 response rats of cyanobacteria and moss to different watering treatments (Treat). Original models were built by Kristin Young.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model_1<span class="ot">&lt;-</span> <span class="fu">gam</span>(GPP_positive <span class="sc">~</span> Type <span class="sc">*</span> Treat <span class="sc">+</span> <span class="fu">s</span>(Time, <span class="at">by =</span> Treat, <span class="at">k =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">s</span>(Rep, <span class="at">bs =</span> <span class="st">'re'</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> data, <span class="at">family=</span>gaussian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in smooth.construct.tp.smooth.spec(object, dk$data, dk$knots): la dimension de base, k, est augmentée à la valeur minimale possible</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model_2<span class="ot">&lt;-</span> <span class="fu">gam</span>(GPP_positive <span class="sc">~</span> Type <span class="sc">*</span> Treat <span class="sc">+</span> <span class="fu">s</span>(Time, <span class="at">by =</span> Treat, <span class="at">k =</span> <span class="dv">4</span>) <span class="sc">+</span><span class="fu">s</span>(Time, <span class="at">by =</span> Type, <span class="at">k =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">s</span>(Rep, <span class="at">bs =</span> <span class="st">'re'</span>), </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> data, <span class="at">family=</span>gaussian) </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>model_3<span class="ot">&lt;-</span> <span class="fu">gam</span>(GPP_positive <span class="sc">~</span> Type <span class="sc">*</span> Treat <span class="sc">+</span><span class="fu">s</span>(Time, <span class="at">by =</span> Type, <span class="at">k =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">s</span>(Rep, <span class="at">bs =</span> <span class="st">'re'</span>), </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> data, <span class="at">family=</span>gaussian) </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(model_1, model_2, model_3)<span class="do">## model 2 is lower AIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>              df       AIC
+model_1 17.84123 106.69568
+model_2 20.63656  93.54248
+model_3 15.57728 109.62824</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Family: gaussian 
+Link function: identity 
+
+Formula:
+GPP_positive ~ Type * Treat + s(Time, by = Treat, k = 4) + s(Time, 
+    by = Type, k = 4) + s(Rep, bs = "re")
+
+Parametric coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        0.66872    0.06567  10.182  &lt; 2e-16 ***
+Typemoss           0.23416    0.09251   2.531  0.01227 *  
+Treat2.7           0.24618    0.09205   2.674  0.00821 ** 
+Treat5.4           0.01917    0.09572   0.200  0.84150    
+Treat7.7           0.04351    0.09572   0.455  0.65000    
+Treat10            0.11359    0.09776   1.162  0.24686    
+Typemoss:Treat2.7 -0.06209    0.12915  -0.481  0.63128    
+Typemoss:Treat5.4  0.31519    0.13516   2.332  0.02087 *  
+Typemoss:Treat7.7  0.56461    0.13516   4.178  4.7e-05 ***
+Typemoss:Treat10   0.37295    0.13642   2.734  0.00692 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Approximate significance of smooth terms:
+                        edf Ref.df      F  p-value    
+s(Time):Treat1.8  2.048e+00 2.4262  5.529 0.002053 ** 
+s(Time):Treat2.7  2.427e+00 2.7142  5.794 0.024934 *  
+s(Time):Treat5.4  8.571e-01 0.8571  1.580 0.246146    
+s(Time):Treat7.7  8.571e-01 0.8571  1.596 0.243852    
+s(Time):Treat10   8.571e-01 0.8571  3.302 0.094361 .  
+s(Time):Typecyano 8.571e-01 0.8571 14.208 0.000616 ***
+s(Time):Typemoss  1.733e+00 2.1096 22.530  &lt; 2e-16 ***
+s(Rep)            3.238e-10 1.0000  0.000 0.507501    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Rank: 31/32
+R-sq.(adj) =  0.664   Deviance explained = 69.7%
+GCV = 0.095886  Scale est. = 0.085976  n = 190</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-8.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Family: gaussian 
+Link function: identity 
+
+Formula:
+GPP_positive ~ Type * Treat + s(Time, by = Treat, k = 4) + s(Time, 
+    by = Type, k = 4) + s(Rep, bs = "re")
+
+Parametric Terms:
+           df     F  p-value
+Type        1 6.407   0.0123
+Treat       4 2.324   0.0586
+Type:Treat  4 7.566 1.24e-05
+
+Approximate significance of smooth terms:
+                        edf    Ref.df      F  p-value
+s(Time):Treat1.8  2.048e+00 2.426e+00  5.529 0.002053
+s(Time):Treat2.7  2.427e+00 2.714e+00  5.794 0.024934
+s(Time):Treat5.4  8.571e-01 8.571e-01  1.580 0.246146
+s(Time):Treat7.7  8.571e-01 8.571e-01  1.596 0.243852
+s(Time):Treat10   8.571e-01 8.571e-01  3.302 0.094361
+s(Time):Typecyano 8.571e-01 8.571e-01 14.208 0.000616
+s(Time):Typemoss  1.733e+00 2.110e+00 22.530  &lt; 2e-16
+s(Rep)            3.238e-10 1.000e+00  0.000 0.507501</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(model_2)<span class="co"># R2=0.664, can use this output in MS to explain model observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">GPP_positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">CI</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">p</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.67</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.54&nbsp;–&nbsp;0.80</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Typemoss</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.23</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.05&nbsp;–&nbsp;0.42</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.012</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Treat2 7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.25</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.06&nbsp;–&nbsp;0.43</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.008</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Treat5 4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.02</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.17&nbsp;–&nbsp;0.21</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.841</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Treat7 7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.04</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.15&nbsp;–&nbsp;0.23</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.650</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Treat10</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.11</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.08&nbsp;–&nbsp;0.31</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.247</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Typemoss × Treat2 7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.06</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.32&nbsp;–&nbsp;0.19</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.631</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Typemoss × Treat5 4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.32</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.05&nbsp;–&nbsp;0.58</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.021</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Typemoss × Treat7 7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.56</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.30&nbsp;–&nbsp;0.83</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Typemoss × Treat10</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.37</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.10&nbsp;–&nbsp;0.64</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.007</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Treat1 8</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.002</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Treat2 7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.025</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Treat5 4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.246</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Treat7 7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.244</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Treat10</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.094</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Typecyano</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.001</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Time) ×<br>
+Typemoss</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">Smooth term (Rep)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.508</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup></td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.664</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gam.check</span>(model_2) <span class="co">#model looks really good with assumptions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/original models-9.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Method: GCV   Optimizer: magic
+Smoothing parameter selection converged after 14 iterations.
+The RMS GCV score gradient at convergence was 1.339272e-08 .
+The Hessian was positive definite.
+Model rank =  31 / 32 
+
+Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'      edf k-index p-value
+s(Time):Treat1.8  3.00e+00 2.05e+00    1.12    0.92
+s(Time):Treat2.7  3.00e+00 2.43e+00    1.12    0.93
+s(Time):Treat5.4  3.00e+00 8.57e-01    1.12    0.92
+s(Time):Treat7.7  3.00e+00 8.57e-01    1.12    0.94
+s(Time):Treat10   3.00e+00 8.57e-01    1.12    0.94
+s(Time):Typecyano 3.00e+00 8.57e-01    1.12    0.95
+s(Time):Typemoss  3.00e+00 1.73e+00    1.12    0.92
+s(Rep)            1.00e+00 3.24e-10    1.15    0.97</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Anova(model_2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The model looks pretty good and is explaining about 70% of the variation in the data. To help with interpretation, we can now build out predictive models so we can plot our model output and see how it looks.</p>
+</section>
+<section id="build-models-and-think-about-stats-tables" class="level2">
+<h2 class="anchored" data-anchor-id="build-models-and-think-about-stats-tables">Build models and think about stats tables</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>predict<span class="ot">&lt;-</span>tidymv<span class="sc">::</span><span class="fu">predict_gam</span>(model_2) </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#test plot of the curves from the model</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>predict <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> fit, <span class="at">color =</span> Type))<span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"gam"</span>, <span class="at">formula=</span>y<span class="sc">~</span><span class="fu">s</span>(x))<span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> Treat, <span class="at">scales =</span> <span class="st">'free'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/model prediction-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Trying to figure out how to remove the gaps in the confidence intervals.</p>
+<p>Next step is to clean up the plot and bring it all together.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>graph_df<span class="ot">&lt;-</span>predict<span class="sc">%&gt;%</span> <span class="co">#first need to merge in the predictive data</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">lwr=</span>fit<span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>se.fit), <span class="at">upr=</span>fit<span class="sc">+</span>(<span class="dv">2</span><span class="sc">*</span>se.fit))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>(fig1<span class="ot">&lt;-</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_ribbon</span>(<span class="at">data=</span>graph_df, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">ymin=</span>lwr, <span class="at">ymax=</span> upr, <span class="at">group=</span>Type),  <span class="at">fill=</span><span class="st">"gray"</span>)<span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">data=</span>graph_df, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>fit, <span class="at">color=</span>Type), <span class="at">method=</span><span class="st">"gam"</span>, <span class="at">formula=</span>y<span class="sc">~</span><span class="fu">s</span>(x), <span class="at">se=</span>T)<span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data=</span>data,<span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span> GPP_positive, <span class="at">color =</span> Type, <span class="at">shape=</span> Type))<span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">facet_grid</span>(. <span class="sc">~</span> Treat, <span class="at">scales =</span> <span class="st">'free'</span>) <span class="sc">+</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">'GPP (µmol CO2/m²/s)'</span>) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Time (minutes)'</span>) <span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>( <span class="st">"Crust Type"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#fdbb84"</span>, <span class="st">"#2ca25f"</span>)) <span class="sc">+</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_shape_manual</span>( <span class="st">"Crust Type"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">17</span>)) <span class="sc">+</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">210</span>, <span class="dv">30</span>))<span class="sc">+</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">30</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size=</span><span class="dv">9</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>),</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>))</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/Figure 1-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="experiment_1_flux_curve_analysis_files/figure-html/Figure 1-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig1.png"</span>, <span class="at">dpi=</span><span class="dv">300</span>, <span class="at">width=</span><span class="dv">8</span>, <span class="at">height=</span><span class="fl">5.5</span>, <span class="at">units=</span><span class="st">"in"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+</div>
+<p>Figure out the stats for this above figure and make a table. Are the patterns different between moss and cyano overtime within each treatment? I think the best option is to fit a linear mixed effects model and then do post-hoc testing with the multcomp package.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>model_2<span class="ot">&lt;-</span> <span class="fu">gam</span>(GPP_positive <span class="sc">~</span> Type <span class="sc">*</span> Treat <span class="sc">+</span> <span class="fu">s</span>(Time, <span class="at">by =</span> Treat, <span class="at">k =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">s</span>(Time, <span class="at">by =</span> Type, <span class="at">k =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">s</span>(Rep, <span class="at">bs =</span> <span class="st">'re'</span>), </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> data, <span class="at">family=</span>gaussian) </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>mod_posthoc<span class="ot">&lt;-</span>lme4<span class="sc">::</span><span class="fu">lmer</span>(GPP_positive<span class="sc">~</span>Type<span class="sc">*</span>Treat<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>Rep), <span class="at">data=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>boundary (singular) fit: see help('isSingular')</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_posthoc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: GPP_positive ~ Type * Treat + (1 | Rep)
+   Data: data
+
+REML criterion at convergence: 223.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9599 -0.6429  0.1768  0.6391  2.3270 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Rep      (Intercept) 0.0000   0.0000  
+ Residual             0.1725   0.4154  
+Number of obs: 190, groups:  Rep, 3
+
+Fixed effects:
+                  Estimate Std. Error t value
+(Intercept)        0.63606    0.09064   7.017
+Typemoss           0.23379    0.12978   1.801
+Treat2.7           0.22455    0.12819   1.752
+Treat5.4           0.07666    0.13342   0.575
+Treat7.7           0.10104    0.13342   0.757
+Treat10            0.19429    0.13552   1.434
+Typemoss:Treat2.7 -0.09427    0.18242  -0.517
+Typemoss:Treat5.4  0.33904    0.18977   1.787
+Typemoss:Treat7.7  0.58846    0.18977   3.101
+Typemoss:Treat10   0.37734    0.19125   1.973
+
+Correlation of Fixed Effects:
+            (Intr) Typmss Trt2.7 Trt5.4 Trt7.7 Tret10 T:T2.7 T:T5.4 T:T7.7
+Typemoss    -0.698                                                        
+Treat2.7    -0.707  0.494                                                 
+Treat5.4    -0.679  0.474  0.480                                          
+Treat7.7    -0.679  0.474  0.480  0.462                                   
+Treat10     -0.669  0.467  0.473  0.454  0.454                            
+Typmss:T2.7  0.497 -0.711 -0.703 -0.338 -0.338 -0.332                     
+Typmss:T5.4  0.478 -0.684 -0.338 -0.703 -0.324 -0.319  0.487              
+Typmss:T7.7  0.478 -0.684 -0.338 -0.324 -0.703 -0.319  0.487  0.468       
+Typmss:Tr10  0.474 -0.679 -0.335 -0.322 -0.322 -0.709  0.483  0.464  0.464
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(mod_posthoc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: GPP_positive
+            Chisq Df Pr(&gt;Chisq)    
+Type       57.783  1  2.927e-14 ***
+Treat      23.572  4  9.731e-05 ***
+Type:Treat 17.954  4    0.00126 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>emm <span class="ot">=</span> <span class="fu">emmeans</span>(mod_posthoc, <span class="sc">~</span> Type<span class="sc">*</span>Treat)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(emm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> contrast                        estimate    SE  df t.ratio p.value
+ cyano Treat1.8 - moss Treat1.8  -0.23379 0.130 179  -1.798  0.7356
+ cyano Treat1.8 - cyano Treat2.7 -0.22455 0.128 178  -1.750  0.7649
+ cyano Treat1.8 - moss Treat2.7  -0.36406 0.128 178  -2.838  0.1320
+ cyano Treat1.8 - cyano Treat5.4 -0.07666 0.134 178  -0.574  0.9999
+ cyano Treat1.8 - moss Treat5.4  -0.64948 0.134 178  -4.864  0.0001
+ cyano Treat1.8 - cyano Treat7.7 -0.10104 0.134 178  -0.757  0.9990
+ cyano Treat1.8 - moss Treat7.7  -0.92329 0.134 178  -6.915  &lt;.0001
+ cyano Treat1.8 - cyano Treat10  -0.19429 0.136 179  -1.431  0.9159
+ cyano Treat1.8 - moss Treat10   -0.80541 0.134 178  -6.032  &lt;.0001
+ moss Treat1.8 - cyano Treat2.7   0.00924 0.130 178   0.071  1.0000
+ moss Treat1.8 - moss Treat2.7   -0.13028 0.130 178  -1.004  0.9917
+ moss Treat1.8 - cyano Treat5.4   0.15713 0.135 178   1.164  0.9767
+ moss Treat1.8 - moss Treat5.4   -0.41569 0.135 178  -3.080  0.0709
+ moss Treat1.8 - cyano Treat7.7   0.13275 0.135 178   0.983  0.9929
+ moss Treat1.8 - moss Treat7.7   -0.68950 0.135 178  -5.108  &lt;.0001
+ moss Treat1.8 - cyano Treat10    0.03950 0.137 178   0.288  1.0000
+ moss Treat1.8 - moss Treat10    -0.57162 0.135 178  -4.235  0.0015
+ cyano Treat2.7 - moss Treat2.7  -0.13952 0.128 178  -1.088  0.9853
+ cyano Treat2.7 - cyano Treat5.4  0.14789 0.133 178   1.108  0.9833
+ cyano Treat2.7 - moss Treat5.4  -0.42494 0.133 178  -3.185  0.0529
+ cyano Treat2.7 - cyano Treat7.7  0.12351 0.133 178   0.926  0.9954
+ cyano Treat2.7 - moss Treat7.7  -0.69874 0.133 178  -5.237  &lt;.0001
+ cyano Treat2.7 - cyano Treat10   0.03026 0.136 178   0.223  1.0000
+ cyano Treat2.7 - moss Treat10   -0.58087 0.133 178  -4.354  0.0009
+ moss Treat2.7 - cyano Treat5.4   0.28741 0.133 178   2.154  0.4923
+ moss Treat2.7 - moss Treat5.4   -0.28542 0.133 178  -2.139  0.5026
+ moss Treat2.7 - cyano Treat7.7   0.26303 0.133 178   1.971  0.6201
+ moss Treat2.7 - moss Treat7.7   -0.55922 0.133 178  -4.191  0.0017
+ moss Treat2.7 - cyano Treat10    0.16978 0.136 178   1.252  0.9625
+ moss Treat2.7 - moss Treat10    -0.44135 0.133 178  -3.308  0.0369
+ cyano Treat5.4 - moss Treat5.4  -0.57282 0.138 178  -4.137  0.0022
+ cyano Treat5.4 - cyano Treat7.7 -0.02438 0.138 178  -0.176  1.0000
+ cyano Treat5.4 - moss Treat7.7  -0.84663 0.138 178  -6.115  &lt;.0001
+ cyano Treat5.4 - cyano Treat10  -0.11763 0.141 178  -0.837  0.9979
+ cyano Treat5.4 - moss Treat10   -0.72875 0.138 178  -5.263  &lt;.0001
+ moss Treat5.4 - cyano Treat7.7   0.54845 0.138 178   3.961  0.0042
+ moss Treat5.4 - moss Treat7.7   -0.27381 0.138 178  -1.978  0.6159
+ moss Treat5.4 - cyano Treat10    0.45520 0.141 178   3.239  0.0452
+ moss Treat5.4 - moss Treat10    -0.15593 0.138 178  -1.126  0.9814
+ cyano Treat7.7 - moss Treat7.7  -0.82225 0.138 178  -5.939  &lt;.0001
+ cyano Treat7.7 - cyano Treat10  -0.09325 0.141 178  -0.664  0.9997
+ cyano Treat7.7 - moss Treat10   -0.70437 0.138 178  -5.087  &lt;.0001
+ moss Treat7.7 - cyano Treat10    0.72900 0.141 178   5.188  &lt;.0001
+ moss Treat7.7 - moss Treat10     0.11788 0.138 178   0.851  0.9976
+ cyano Treat10 - moss Treat10    -0.61112 0.141 178  -4.349  0.0009
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: tukey method for comparing a family of 10 estimates </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>model_means_cld <span class="ot">&lt;-</span> <span class="fu">cld</span>(<span class="at">object =</span> emm,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">adjust =</span> <span class="st">"Tukey"</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Letters =</span> letters,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Note: adjust = "tukey" was changed to "sidak"
+because "tukey" is only appropriate for one set of pairwise comparisons</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>model_means_cld</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> Type  Treat emmean     SE    df lower.CL upper.CL .group
+ cyano 1.8    0.636 0.0908  93.3    0.376    0.896  a    
+ cyano 5.4    0.713 0.0979 109.9    0.433    0.992  a    
+ cyano 7.7    0.737 0.0979 109.9    0.457    1.017  a    
+ cyano 10     0.830 0.1008 114.7    0.543    1.118  a    
+ cyano 2.7    0.861 0.0906  94.6    0.601    1.120  ab   
+ moss  1.8    0.870 0.0929  99.0    0.604    1.136  ab   
+ moss  2.7    1.000 0.0906  94.6    0.740    1.260  ab   
+ moss  5.4    1.286 0.0979 109.9    1.006    1.565   bc  
+ moss  10     1.441 0.0979 109.9    1.162    1.721    c  
+ moss  7.7    1.559 0.0979 109.9    1.280    1.839    c  
+
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+Conf-level adjustment: sidak method for 10 estimates 
+P value adjustment: tukey method for comparing a family of 10 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./experiment_1_cummulative_flux_analysis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">experiment_1_cummulative_flux_analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./experiment_2_dry_down_curve_analysis.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">experiment_2_dry_down_curve_analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
