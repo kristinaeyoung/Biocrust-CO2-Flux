@@ -3,6 +3,8 @@
 **Author:** Kristina E Young
 **Date:** March 31, 2025
 
+[![DOI](https://zenodo.org/badge/958055718.svg)](https://doi.org/10.5281/zenodo.15131014)
+
 ## Description
 
 This repository contains data and analysis code for a precipitation manipulation experiment conducted in Moab, Utah. The focus is on the effects of altered precipitation patterns on biocrust CO₂ fluxes. The dataset includes chamber-based flux measurements along with associated environmental variables.
